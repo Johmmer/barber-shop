@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ogp-@on76!4ee4@1im4ta*4z!kz!flql(24ujaya)gqd1m#$5s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://e6a5-179-49-202-131.ngrok-free.app']
+ALLOWED_HOSTS = ['https://Johmmer.pythonanywhere.com', 'johmmer.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'barber_shop.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "barbershop",
-        "USER": "root",
-        "PASSWORD": "Johmmer0102#",
-        "HOST": "127.0.0.1",
+        "NAME": "Johmmer$barbershop",
+        "USER": "Johmmer",
+        "PASSWORD": "Jrm0102#",
+        "HOST": "Johmmer.mysql.pythonanywhere-services.com",
         "PORT": "3306",
     }
 }
@@ -122,16 +122,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "/var/www/static/",
-]
+STATIC_ROOT = '/home/Johmmer/barber-shop/barber_shop/static'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GOOGLE_CLIENT_SECRETS_FILE = os.path.join(BASE_DIR, 'credentials.json')
 GOOGLE_API_SCOPES = ['https://www.googleapis.com/auth/calendar']
-REDIRECT_URI = 'https://e6a5-179-49-202-131.ngrok-free.app/reservation/oauth2callback'
+REDIRECT_URI = 'https://Johmmer.pythonanywhere.com/reservation/oauth2callback'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
