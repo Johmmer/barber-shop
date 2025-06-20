@@ -72,7 +72,7 @@ def create_calendar_events(request):
         logger.info(f"Credentials content: {request.session['credentials']}")
     else:
         logger.info("✗ NO credentials in session")
-        logger.info("Available session keys:" + list(request.session.keys()))
+        logger.info("Available session keys:" + str(list(request.session.keys())))
     
     reservations = get_reservation()
     creds = Credentials(**request.session['credentials'])
