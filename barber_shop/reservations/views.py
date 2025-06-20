@@ -7,6 +7,9 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import Flow
 import datetime
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def get_reservation():
@@ -52,6 +55,25 @@ def credentials_to_dict(credentials):
     }
 
 def create_calendar_events(request):
+        # Log de debugging completo
+    logger.info("=== DEBUG CREATE CALENDAR EVENTS ===")
+    logger.info(f"Request path: {request.path}")
+    logger.info(f"Request full URL: {request.build_absolute_uri()}")
+    logger.info(f"Session keys: {list(request.session.keys())}")
+    
+    # Mostrar todo el contenido de la sesión
+    for key, value in request.session.items():
+        logger.info(f"Session[{key}]: {value}")
+    
+    # Verificar específicamente las credenciales
+    if 'credentials' in request.session:
+        logger.info("✓ Credentials found in session")
+        logger.info(f"Credentials type: {type(request.session['credentials'])}")
+        logger.info(f"Credentials content: {request.session['credentials']}")
+    else:
+        logger.info("✗ NO credentials in session")
+        logger.info("Available session keys:", list(request.session.keys()))
+    
     reservations = get_reservation()
     creds = Credentials(**request.session['credentials'])
     service = build('calendar', 'v3', credentials=creds)
