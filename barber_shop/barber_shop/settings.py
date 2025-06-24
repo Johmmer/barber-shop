@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = '/home/Johmmer/barber-shop/barber_shop/static'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-GOOGLE_CLIENT_SECRETS_FILE = os.path.join(BASE_DIR, 'credentials.json')
+GOOGLE_CLIENT_SECRETS_FILE = os.path.join(BASE_DIR, 'credentials.json') #working
 GOOGLE_API_SCOPES = ['https://www.googleapis.com/auth/calendar']
 REDIRECT_URI = 'https://Johmmer.pythonanywhere.com/reservation/oauth2callback'
 
