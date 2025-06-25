@@ -10,6 +10,13 @@ def generar_horas():
         horas.append((hora, hora_mostrar))
     return horas
 
+class ReservationForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['time'].widget = forms.Select(
+            choices=generar_horas(),
+            attrs={'class': 'form-control'}
+        )
 
 class ReservationForm(forms.ModelForm):
     class Meta:
@@ -19,7 +26,6 @@ class ReservationForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Escriba su nombre'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Escriba su email'}),
             'date': forms.DateInput(attrs={'class': 'form-control', 'id': 'datepicker', 'placeholder': 'seleccione una fecha'}),
-            'time': forms.ChoiceField(choices=generar_horas(), attrs={'class': 'form-control', 'placeholder': 'Seleccione una hora para su cita'}),
             'service': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Seleccione un servicio'}),
             'barber': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Seleccione un barbero'}),
             'notes': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Escriba sus notas'}),
