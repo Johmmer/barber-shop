@@ -7,7 +7,7 @@ def validate_price(value):
 
 class Service(models.Model):
     service_name = models.CharField(max_length=255, null=False, blank=False)
-    price = models.DecimalField(max_digits=10, decimal_places=2, validators=[validate_price])
+    price = models.DecimalField(max_digits=10, decimal_places=2, validators=[validate_price], default=300.00)
     
     def __str__(self):
         return self.service_name
