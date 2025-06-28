@@ -22,7 +22,7 @@ class Time(models.Model):
     start_time = models.TimeField(null=False, blank=False)
     text = models.CharField(max_length=100, null=False, blank=False)
     def __str__(self):
-        return self.text
+        return str(self.add_to_classstart_time)
 
 class Reservation(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
