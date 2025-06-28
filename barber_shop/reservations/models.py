@@ -20,9 +20,8 @@ class Barber(models.Model):
 
 class Hora(models.Model):
     start_time = models.TimeField(null=False, blank=False)
-    text = models.CharField(max_length=100, null=True)
     def __str__(self):
-        return str(self.add_to_classstart_time)
+        return str(self.start_time)
 
 class Reservation(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
